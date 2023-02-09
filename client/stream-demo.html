@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Demo - Matherium | Connect with Your Customers Like Never Before</title>
+
+    <link rel='stylesheet' type='text/css' media='screen' href='./stream-demo.css'>
+
+    <script defer src='./stream-demo.js'></script>
+
+    <!-- Browser tab image -->
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/images/icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <!-- links for Montserrat font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;800&display=swap" rel="stylesheet">
+
+    <!-- Fontawesome icons -->
+    <script src="https://kit.fontawesome.com/973f96d1c4.js" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G7F0XB64VY"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G7F0XB64VY');
+    </script>
+
+    <!-- HLS Streaming library -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+    <video id="live-stream" autoplay controls>
+        <source src='https://matherium.com/vod/FocusTedTalk_trimd_p1_500K_cbr_out.mp4' type="video/mp4">
+        <!-- <source src='https://matherium.com/vod/FocusTedTalk_trimd_p1_rtmp_flv_out.flv' type="video/x-flv"> -->
+    </video>
+    <!-- <video id="live-stream" autoplay controls src="https://matherium.com/vod/FocusTedTalk_trimd_p1_rtmp_flv_out.flv"></video> -->
+    <!-- <video id="live-stream" autoplay controls></video> -->
+</body>
+<!-- <script>
+    if(Hls.isSupported()) {
+      var video = document.getElementById('live-stream');
+      var hls = new Hls();
+      hls.loadSource('https://matherium.com/vod/FocusTedTalk_trimd_p1_rtmp_flv_out.flv');
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED,function() {
+        video.play();
+    });
+   }
+  </script> -->
+</html>

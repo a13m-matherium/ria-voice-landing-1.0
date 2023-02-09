@@ -1,0 +1,37 @@
+* {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --accent: #EA5656;
+    --primary: #191843;
+    --secondary: #A5D9EF;
+    --whiteish: #F5EFED;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+::-moz-selection { /* Code for Firefox */
+    background: var(--accent);
+  }
+  
+  ::selection {
+    background: var(--accent);
+  }
+
+body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--whiteish);
+    font-family: 'Montserrat', sans-serif;    
+}

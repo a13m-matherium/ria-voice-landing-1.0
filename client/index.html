@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Matherium | Connect with Your Customers Like Never Before</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
+    <script defer src='/main.js'></script>
+
+    <!-- Browser tab image -->
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/images/icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <!-- links for Montserrat font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;800&display=swap" rel="stylesheet">
+
+    <!-- Fontawesome icons -->
+    <script src="https://kit.fontawesome.com/973f96d1c4.js" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G7F0XB64VY"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G7F0XB64VY');
+    </script>
+</head>
+<body>
+    <div id="nav" class="nav_class">
+        <div id="logo-div" style="display: inline; height: fit-content; width: fit-content;">
+            <a href="#">
+                <picture class="logo" alt="Matherium">
+                    <source media="(min-width: 480px)" srcset="/images/logo.png">
+                    <img class="logo" src="/images/icon.png" alt="Mobile-Size-Logo">
+                </picture>
+                <label id="header-matherium-text">Matherium</label>
+            </a>
+        </div>   
+        <div id="menu-items">
+            <a class="menu-item" href="#how-it-works">How it works</a>
+            <button id="signup-btn">
+                <a href="#signup">Sign up!</a>
+            </button>
+            <div id='mask'></div>
+        </div>
+    </div>
+    <div id="nav-placeholder"></div>
+    <section id="front-container">
+        
+        <div id="front-graphic">
+            <div id="front-text">
+                <h1 class="ria-header-text">Ria</h1>
+                <h1 class="subheader-text"> the Interactive AI Avatar</h1>
+            </div>
+            <div id="front-text-1">
+                <h1 class="header-text">Scale your</h1>
+                <div class="header-text" id="changeText">Customer Service.</div>
+            </div>
+        </div>
+        <div id="front-graphic-2">
+            <video autoplay loop muted playsinline id="videoInsert" poster="/video/person-talking.mp4">
+                <source src="/video/person-talking.webm" type="video/webm">
+                <source src="/video/person-talking.mp4" type="video/mp4">
+                <source src="/video/person-talking.ogv" type="video/ogg">
+               </video>
+        </div>
+    </section>
+
+    <section id="how-it-works"> 
+        <div id="ss-left">
+            <video autoplay loop muted playsinline id="video2">
+                <source src="/video/animation-video.mp4" type="video/mp4">
+                <source src="/video/animation-video.ogv" type="video/ogg">
+                <source src="/video/animation-video.webm" type="video/webm">
+               </video>
+        </div>
+        <div id="ss-right">
+            <p class="subsubheader-text">&#128266; Unmute and talk to Ria.</p>
+            <p class="subsubheader-text">&#129504; Answer customer questions.</p>
+            <p class="subsubheader-text">&#127912; Customize Ria's look, voice and name.</p>
+            <p class="subsubheader-text">&#128344; All day, every day.</p>
+        </div>
+    </section>
+    <section class="signup-container" id="signup"> 
+        <div id="signup-text">
+            <p class="header">Join the waitlist for <label class="accent-no-underline">Ria</label></p>
+            <div id="para-container">
+               <div class="para-group"><label class="para">We're just getting started 🚀</label> <label class="para"> Exciting stuff coming up soon! 🤫</label></div> 
+               <div class="para-group"><label class="para">✅ Be among the first to get access </label> <label class="para"> ✅ Stay updated.</p></div>
+            </div> 
+            <form id="email-form" name="email-form">
+                    <p>
+                        <label> <input required type="email" placeholder="Email address" inputmode="email" id="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+"></label>
+                    </p>
+                    <button type="submit" id="lower-signup-btn">
+                       Go!
+                    </button>
+            </form>
+        </div>
+        
+    </section>
+    <div id="copyright">&#169; Matherium LLC 2022. All rights reserved.</div>
+    <div id="snackbar">🥳 Yay!! You're on the waitlist🎉</div>
+</body>
+</html>
+
