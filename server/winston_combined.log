@@ -1,0 +1,6 @@
+
+{"level":"info","message":"This is a test log to test winston's logging"}
+{"level":"info","message":"This is a test log to test winston's logging"}
+{"level":"info","message":"This is a test log to test winston's logging"}
+{"level":"info","message":"This is a test log to test winston's logging"}
+{"level":"info","message":"entered endpoint","service":"user-service"}
