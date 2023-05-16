@@ -1,6 +1,149 @@
 
-{"level":"info","message":"This is a test log to test winston's logging"}
-{"level":"info","message":"This is a test log to test winston's logging"}
-{"level":"info","message":"This is a test log to test winston's logging"}
-{"level":"info","message":"This is a test log to test winston's logging"}
-{"level":"info","message":"entered endpoint","service":"user-service"}
+{"level":"info","message":435,"service":"user-service"}
+{"level":"info","message":435,"service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"info","message":"in development mode","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"server listening at 435","service":"user-service"}
+{"level":"error","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"error","message":"in development mode","service":"user-service"}
+{"level":"error","message":true,"service":"user-service"}
+{"level":"error","message":"server listening at 435","service":"user-service"}
+{"level":"error","message":"This is a test log to test winston's logging","service":"user-service"}
+{"level":"error","message":"in development mode","service":"user-service"}
+{"level":"error","message":true,"service":"user-service"}
+{"level":"error","message":"server listening at 435","service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}
+{"level":"info","message":"here","service":"user-service"}
+{"level":"info","message":true,"service":"user-service"}

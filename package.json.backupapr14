@@ -1,0 +1,34 @@
+{
+  "name": "matherium-website-1.0",
+  "version": "1.0.0",
+  "description": "This is the initial marketing website for Matherium",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node ./server/index.js",
+    "build": "next build ./next_client",
+    "start": "next start ./next_client",
+    "lint": "next lint ./next_client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infinityp913/Matherium-Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infinityp913/Matherium-Website/issues"
+  },
+  "homepage": "https://github.com/infinityp913/Matherium-Website#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "next": "^13.3.0",
+    "pg-promise": "^10.11.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "url": "^0.11.0",
+    "winston": "^3.8.2"
+  }
+}
