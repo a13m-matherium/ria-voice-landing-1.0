@@ -1,0 +1,1 @@
+cmd_Release/mediastream_addon.node := ln -f "Release/obj.target/mediastream_addon.node" "Release/mediastream_addon.node" 2>/dev/null || (rm -rf "Release/mediastream_addon.node" && cp -af "Release/obj.target/mediastream_addon.node" "Release/mediastream_addon.node")

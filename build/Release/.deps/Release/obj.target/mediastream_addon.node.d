@@ -1,0 +1,1 @@
+cmd_Release/obj.target/mediastream_addon.node := g++ -o Release/obj.target/mediastream_addon.node -shared -pthread -rdynamic -m64  -Wl,-soname=mediastream_addon.node -Wl,--start-group Release/obj.target/mediastream_addon/mediastream_addon.o -Wl,--end-group 

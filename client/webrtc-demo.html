@@ -89,51 +89,65 @@
         hangupBtn.hidden = false;
       }
 
+      let peer_id;
+
+      //   DEPRECATED CODE
       let code;
       function getStreamCode() {
         code = window.prompt(
           "Please enter the code for the peer you want to connect with"
         );
       }
+      //   DEPRECATED CODE END
 
       let conn;
 
       const recordedChunks = [];
 
-      callBtn.addEventListener("click", () => {
-        getStreamCode();
-        // Calling logic
-        conn = peer.connect(code); // STEP 1: CONNECT (signalling) //TODO: Be sure to listen on error event: peer.on('error', (error)=>{})
-        //TODO: fetch endpoint /create-wrtc-peer
-        const call = peer.call(code, window.localStream); // STEP 2: CALL with our local stream (we set window.locastream to our mediatsream)
-        // TODO: Be sure to listen on error event: peer.on('error', (error)=>{})
-        console.log("stag log: hello");
-        call.on("stream", (remote_stream) => {
-          // STEP 3: RECEIVE remote stream
-          console.log("stag log: were in stream mode");
-          // APR 21 REMOVED BINDING TO AUDIO HTML TAG
-          // window.remoteAudio.srcObject = remote_stream;
-          // window.remoteAudio.autoplay = true;
-          window.peerStream = remote_stream; // this just sets a variable to access the remotestream later
-          // // TODO: pipe remote_stream to file IN THE CALLING LOGIC
-          // const mediaRecorder = new MediaRecorder(remote_stream, {
-          //   audioBitsPerSecond: 16000, // whisper neeeds 16K samplerate
-          // });
-          // mediaRecorder.ondataavailable = handleDataAvailable;
-          // mediaRecorder.start();
-          // showConnectedContent();
-          // setTimeout((event) => {
-          //   console.log("stopping");
-          //   mediaRecorder.stop();
-          // }, 15000);
-          console.log("right above bufferstream call");
-          bufferStream(remote_stream);
-        });
-        conn.on("close", () => {
-          // This is to execute code when the remote peer ends the call
-          //Emitted when either you or the remote peer closes the data connection.
-          showCallContent();
-        });
+      callBtn.addEventListener("click", async () => {
+        // call endpoint /gen_peer which generates a peer
+        (async () => {
+          const response = await fetch("/gen-peer");
+          const peer_id_json = await response.json();
+          const peer_id = peer_id_json.peer_id;
+          console.log("peer_id:", peer_id);
+          // Calling logic
+          conn = peer.connect(peer_id); // STEP 1: CONNECT (signalling) //TODO: Be sure to listen on error event: peer.on('error', (error)=>{})
+          console.log('window.localStream:',window.localStream);
+          console.log('MediaStreamTracks:',window.localStream.getAudioTracks());
+          const call = peer.call(peer_id, window.localStream); // STEP 2: CALL with our local stream (we set window.locastream to our mediatsream)
+          console.log("stag log: hello");
+          call.on("stream", (remote_stream) => {
+            // STEP 3: RECEIVE remote stream
+            console.log("stag log: were in stream mode");
+            // APR 21 REMOVED BINDING TO AUDIO HTML TAG
+            // window.remoteAudio.srcObject = remote_stream;
+            // window.remoteAudio.autoplay = true;
+            window.peerStream = remote_stream; // this just sets a variable to access the remotestream later
+            // // TODO: pipe remote_stream to file IN THE CALLING LOGIC
+            // const mediaRecorder = new MediaRecorder(remote_stream, {
+            //   audioBitsPerSecond: 16000, // whisper neeeds 16K samplerate
+            // });
+            // mediaRecorder.ondataavailable = handleDataAvailable;
+            // mediaRecorder.start();
+            showConnectedContent();
+            // setTimeout((event) => {
+            //   console.log("stopping");
+            //   mediaRecorder.stop();
+            // }, 15000);
+            console.log("right above bufferstream call");
+            bufferStream(remote_stream);
+          });
+          conn.on("close", () => {
+            // This is to execute code when the remote peer ends the call
+            //Emitted when either you or the remote peer closes the data connection.
+            showCallContent();
+          });
+        })();
+
+        // // New code May 15 '23: buffering window.localstream into an audiobuffer
+        // let bufferChannelData = bufferStream(window.localStream);
+        // console.log("stream has been buffered");
       });
 
       // helper to capture the remote_stream and call download() helper func
@@ -247,21 +261,8 @@
       SAMPLE_RATE = 16000;
       BUFF_LENGTH = 30; // create a buffer to store 30s of audio
 
-      // function to start buffering the remote stream
-
-      const startBuffer = function (audioCtx, audioBuffer, source) {
-        // source.connect(audioBuffer); // connect() didin't work (overload resolution failure)
-        source.buffer = audioBuffer;
-        source.connect(audioCtx.destination); // this sends the audio to speakers (the default destination)
-        // const floatBufferArr = audioBuffer.getChannelData(0);
-        // return floatBufferArr;
-
-        // TODO: send audio stream to buffer and switch when it fills
-        // when you swithc, change the global buffer index
-      };
-
-      const bufferStream = async function (stream) {
-        resolved_stream = await stream;
+      const bufferStream = function (stream) {
+        resolved_stream = stream;
         console.log("second line inside bufferstream");
         if (resolved_stream.getAudioTracks().length > 0) {
           console.log("TEST: audio tracks > 0!");
@@ -283,45 +284,63 @@
 
           let curr_buffer_idx = 1;
           let curr_buffer = null;
-          // typeof(src) = MediaStreamAudioSourceNode (a type of AudioNode which operates as an audio source whose media is received from a MediaStream obtained using the WebRTC API)
+          // typeof(mediaStreamSource) = MediaStreamAudioSourceNode (a type of AudioNode which operates as an audio source whose media is received from a MediaStream obtained using the WebRTC API)
           // not using AudioBufferSourceNode as in AudioBuffer mdn doc's example, because MediaStreamSource is for WebRTC
-          const mediaStreamSource = audioCtx.createMediaStreamSource(stream); // not using createMediaStreamTrackSource because it's not supported on most browsers (error said X is not a function)
+          const mediaStreamSource = new MediaStreamAudioSourceNode(audioCtx, {
+            mediaStream: stream,
+          }); // not using createMediaStreamTrackSource because it's not supported on most browsers (error said X is not a function)
+          //   Use constructor instead of function to create audion node: https://developer.mozilla.org/en-US/docs/Web/API/AudioNode#creating_an_audionode
+          // Use AudioBufferSourceNode if MediaStreamAudioSourceNode doesn't work
+          const audioBufferSourceNode = new AudioBufferSourceNode(audioCtx, {
+            mediaStream: stream,
+          });
 
           let floatBufferArr = [];
-          const VAD = require("vad").VAD;
-          const vad = new VAD(VAD.MODE_NORMAL);
-          console.log("checking for voice!");
-          // check for voice (speech) in the stream
-          vad.on("voice", function () {
-            console.log("Voice detected!");
-            curr_buffer = curr_buffer_idx == 1 ? buffer1 : buffer2; // determine which buffer to use based on the index
-            startBuffer(audioCtx, curr_buffer, mediaStreamSource);
-          });
 
-          //TODO: poll for buffer filling, is there an event to listen for?
-          // there's an onend event with callback. thats for when the buffer stops playing
+          //   NON-VAD CODE -- BUFFERING 15S OF AUDIO
+          curr_buffer = buffer1; //
+          // source.connect(audioBuffer); // connect() didin't work (overload resolution failure)
+          mediaStreamSource.buffer = curr_buffer;
+          // source.connect(audioCtx.destination); // this sends the audio to speakers (the default destination)
 
-          console.log("checking for silence!");
-          // check for a silence break in speech, if so stop buffering
-          vad.on("silence", function () {
-            console.log("Silence detected!");
-            // Check if a 3s silence period is hit, if so stop buffering and pass on to processing function
+          // TODO: send audio stream to buffer and switch when it fills. is there an event to listen for?
+          //   there's an onend event with callback. thats for when the buffer stops playing
+          // when you swithc, change the global buffer index
+          setTimeout(() => {
+            curr_buffer_idx = curr_buffer_idx == 1 ? 2 : 1; //
+            floatBufferArr = curr_buffer.getChannelData(0);
+          }, 15000);
+          //   END OF NON-VAD CODE
 
-            setTimeout(() => {
-              console.log("Silence detected after 3s!");
-              curr_buffer_idx = curr_buffer_idx == 1 ? 2 : 1; //
-              floatBufferArr = curr_buffer.getChannelData(0);
-            }, 3000);
+          // START OF VAD CODE
+          //   const VAD = require("vad").VAD;
+          //   const vad = new VAD(VAD.MODE_NORMAL);
+          //   console.log("checking for voice!");
+          //   // check for voice (speech) in the stream
+          //   vad.on("voice", function () {
+          //     console.log("Voice detected!");
+          //     curr_buffer = curr_buffer_idx == 1 ? buffer1 : buffer2; // determine which buffer to use based on the index
+          //     mediaStreamSource.buffer = curr_buffer;
+          //   });
 
-            // commented the following out since we'd have to keep calling it in loop until 3s were hit
-            // var start = process.hrtime();
-            // var elapsed = process.hrtime(start)[1] / 1000000; // divide by a million to get nano to milli
-          });
+          //   console.log("checking for silence!");
+          //   // check for a silence break in speech, if so stop buffering
+          //   vad.on("silence", function () {
+          //     console.log("Silence detected!");
+          //     // Check if a 3s silence period is hit, if so stop buffering and pass on to processing function
+
+          //     setTimeout(() => {
+          //       console.log("Silence detected after 3s!");
+          //       curr_buffer_idx = curr_buffer_idx == 1 ? 2 : 1; //
+          //       floatBufferArr = curr_buffer.getChannelData(0);
+          //     }, 3000);
+          //   });
 
           // if needed, try out downloading the buffer: (in download-wav-buffer.js)
-
-          // audioBuffer.connect(audioCtx.destination);
-          // TODO: change createMediatStreamSource to constructor
+          // END OF VAD CODE
+          return floatBufferArr;
+        } else {
+          console.log("TEST ERROR: audio tracks <= 0!");
         }
       };
 
